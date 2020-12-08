@@ -11,13 +11,13 @@ def zomato_data(API_KEY, entity_id, entity_type):
     while start < 50:
         baseurl = "https://developers.zomato.com/api/v2.1/search?"
         headers = {'Accept': 'application/json', 'user-key': API_KEY}
-        params = {'entity_id': entity_id, 'entity_type': entity_type, 'start': start, 'count': 25, 'sort': 'rating', 'order': 'desc'}
+        params = {'entity_id': entity_id, 'entity_type': entity_type, 'start': start, 'count': 10, 'sort': 'rating', 'order': 'desc'}
         request = requests.get(baseurl, headers = headers, params = params)
         response = json.loads(request.text)
         for item in response['restaurants']:
             if item['restaurant']['id']:
                 pull_data.append((item['restaurant']['name'], item['restaurant']['price_range'], float(item['restaurant']['user_rating']['aggregate_rating']), item['restaurant']['location']['city']))
-        start += 25
+        start += 10
     return pull_data
 
 def new_database(): 
@@ -50,10 +50,19 @@ def create_database(data):
         cur.close()
     except:
         print('ERROR')
-zomato_data(API_KEY, LosAngeles_ID, ent_type) 
-zomato_data(API_KEY, NYC_ID, ent_type)
+
 new_database()
-create_database(zomato_data(API_KEY, LosAngeles_ID, ent_type)[0:50])
-#create_database(zomato_data(API_KEY, LosAngeles_ID, ent_type)[25:50])
-create_database(zomato_data(API_KEY, NYC_ID, ent_type)[0:50])
-#create_database(zomato_data(API_KEY, NYC_ID, ent_type)[25:50])
+#Dallas=276
+#Miami=291
+#Los Angeles=281
+#New York City=280
+city = input("Enter the name of a city: ")
+if city == 'Dallas':
+    city_id = 276
+elif city == 'Miami':
+    city_id = 291
+elif city == 'Los Angeles':
+    city_id = 281
+elif city == 'New York City':
+    city_id = 280
+create_database(zomato_data(API_KEY, city_id , ent_type))
