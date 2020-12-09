@@ -2,8 +2,6 @@ import json
 import requests 
 import sqlite3
 API_KEY = '601d041d3b257f8a3debb069cde93bfa'
-LosAngeles_ID = 281
-NYC_ID = 280
 ent_type = 'city'
 def zomato_data(API_KEY, entity_id, entity_type):
     start = 0
