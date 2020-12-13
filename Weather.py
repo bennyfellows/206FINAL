@@ -12,8 +12,7 @@ def weather_data(API_KEY, lat, lon, part):
         pull_data.append((item['temp'], item['wind_speed'], lat, lon))
     return pull_data
 
-#Making another function to include the timezone in our database. 
-def time_data(API_KEY, lat, lon):
+def conidtions(API_KEY, lat, lon):
     baseurl = 'https://api.openweathermap.org/data/2.5/onecall?lat={}&lon={}&exclude={}&appid={}'.format(lat, lon, part, API_KEY)
     request = requests.get(baseurl)
     response = json.loads(request.text)
@@ -21,10 +20,9 @@ def time_data(API_KEY, lat, lon):
     for item in response['hourly']:
         pull_data.append(item['weather'][0]['main'])
     return pull_data
-
-#creates the ID for each timezone 
-def make_shared(API_KEY, lat, lon): 
-    new_lst = time_data(API_KEY, lat, lon)
+ 
+def shared_table(API_KEY, lat, lon): 
+    new_lst = conidtions(API_KEY, lat, lon)
     key_lst = []
     for item in new_lst: 
         if item == "Clouds": 
@@ -43,15 +41,7 @@ def make_shared(API_KEY, lat, lon):
             key_lst.append(item)               
     return key_lst 
 
-
-
-def new_database():
-    conn = sqlite3.connect('/Users/JasonWeisenfeld/206FINAL/alldata1.db')
-    cur = conn.cursor()
-    cur.execute("CREATE TABLE IF NOT EXISTS WeatherType (condition_id INTEGER PRIMARY KEY, condition TEXT)")
-    cur.execute("CREATE TABLE IF NOT EXISTS WeatherData (temperature FLOAT, windspeed FLOAT, condition_id INTEGER, latitude FLOAT, longitude FLOAT, FOREIGN KEY(condition_id) REFERENCES WeatherType(condition_id))")
-
-def create_database(data, shared_data): 
+def makeDB(data, shared_data): 
     try:
         conn = sqlite3.connect('/Users/JasonWeisenfeld/206FINAL/alldata1.db')
         cur = conn.cursor()
@@ -81,7 +71,7 @@ def create_database(data, shared_data):
     except:
         print('ERROR')
 
-def create_second(condition_id, condition): 
+def second_table(condition_id, condition): 
     try: 
         conn = sqlite3.connect('/Users/JasonWeisenfeld/206FINAL/alldata1.db')
         cur = conn.cursor()
@@ -91,7 +81,7 @@ def create_second(condition_id, condition):
         cur.close() 
         print('Successfully added')
     except: 
-        print("ERROR")
+        print("Already in table")
 part = ['current','minutely','daily','alerts']
 city = input("Enter the name of a city: ")
 if city == 'Dallas':
@@ -106,10 +96,10 @@ elif city == 'Los Angeles':
 elif city == 'New York City':
     userlat = 40.7128
     userlon = 74.0060
-create_database(weather_data(API_KEY, userlat, userlon, part), make_shared(API_KEY, userlat, userlon)) 
-create_second(1, 'Clouds')
-create_second(2, 'Clear')
-create_second(3, "Snow")
-create_second(4, "Rain")
-create_second(5, "Drizzle")
-create_second(6, "Thunderstorm")
+makeDB(weather_data(API_KEY, userlat, userlon, part), shared_table(API_KEY, userlat, userlon)) 
+second_table(1, 'Clouds')
+second_table(2, 'Clear')
+second_table(3, "Snow")
+second_table(4, "Rain")
+second_table(5, "Drizzle")
+second_table(6, "Thunderstorm")

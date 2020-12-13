@@ -15,12 +15,7 @@ def yelp_data(API_KEY, location):
             pull_data.append((item['name'], item['price'], item['rating'], item['location']['city']))
     return pull_data
 
-def new_database(): 
-    conn = sqlite3.connect('/Users/JasonWeisenfeld/206FINAL/alldata1.db')
-    cur = conn.cursor()
-    cur.execute("CREATE TABLE IF NOT EXISTS YelpData (restaurant_name TEXT, price_range TEXT, rating FLOAT, city TEXT)")
-
-def create_database(data):
+def makeDB(data):
     try:
         conn = sqlite3.connect('/Users/JasonWeisenfeld/206FINAL/alldata1.db')
         cur = conn.cursor()
@@ -47,6 +42,5 @@ def create_database(data):
     except:
         print('ERROR')
 
-new_database()
 city = input("Enter the name of a city: ") 
-create_database(yelp_data(API_KEY, city))
+makeDB(yelp_data(API_KEY, city))

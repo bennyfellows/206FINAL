@@ -1,0 +1,107 @@
+Windspeed, City
+2.41    Dallas
+2.25    Dallas
+2.02    Dallas
+2.0    Dallas
+2.09    Dallas
+2.12    Dallas
+2.66    Dallas
+3.01    Dallas
+5.05    Dallas
+6.45    Dallas
+5.61    Dallas
+5.95    Dallas
+6.54    Dallas
+8.67    Dallas
+4.61    Dallas
+3.31    Dallas
+2.91    Dallas
+3.17    Dallas
+3.44    Dallas
+3.0    Dallas
+2.6    Dallas
+2.42    Dallas
+1.91    Dallas
+1.75    Dallas
+1.66    Dallas
+1.06    Los Angeles
+1.1    Los Angeles
+0.79    Los Angeles
+1.21    Los Angeles
+1.36    Los Angeles
+1.88    Los Angeles
+2.01    Los Angeles
+1.68    Los Angeles
+1.75    Los Angeles
+1.18    Los Angeles
+1.43    Los Angeles
+1.08    Los Angeles
+0.42    Los Angeles
+0.15    Los Angeles
+0.75    Los Angeles
+1.25    Los Angeles
+1.09    Los Angeles
+1.42    Los Angeles
+1.37    Los Angeles
+1.17    Los Angeles
+1.19    Los Angeles
+1.31    Los Angeles
+1.36    Los Angeles
+1.04    Los Angeles
+0.41    Los Angeles
+3.13    New York City
+3.24    New York City
+3.27    New York City
+3.19    New York City
+3.09    New York City
+3.0    New York City
+2.83    New York City
+2.45    New York City
+2.03    New York City
+1.29    New York City
+0.43    New York City
+0.33    New York City
+0.42    New York City
+0.35    New York City
+1.28    New York City
+2.3    New York City
+2.79    New York City
+2.89    New York City
+3.0    New York City
+3.0    New York City
+3.1    New York City
+3.08    New York City
+2.88    New York City
+2.95    New York City
+2.82    New York City
+0.64    Miami
+0.77    Miami
+0.7    Miami
+1.08    Miami
+0.7    Miami
+0.71    Miami
+0.62    Miami
+0.95    Miami
+1.34    Miami
+0.91    Miami
+0.31    Miami
+1.34    Miami
+1.79    Miami
+2.85    Miami
+1.69    Miami
+1.44    Miami
+3.2    Miami
+3.89    Miami
+3.79    Miami
+4.11    Miami
+3.29    Miami
+2.7    Miami
+3.02    Miami
+3.46    Miami
+2.82    Miami
+---------------------------
+City, Average Wind Speed
+Dallas    3.504
+Los Angeles    1.178
+New York City    2.366
+Miami    1.925

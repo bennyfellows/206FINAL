@@ -18,12 +18,8 @@ def zomato_data(API_KEY, entity_id, entity_type):
         start += 10
     return pull_data
 
-def new_database(): 
-    conn = sqlite3.connect('/Users/JasonWeisenfeld/206FINAL/alldata1.db')
-    cur = conn.cursor()
-    cur.execute("CREATE TABLE IF NOT EXISTS ZomatoData (restaurant_name TEXT, price_range TEXT, rating FLOAT, city TEXT)")
 
-def create_database(data):
+def makeDB(data):
     try:
         conn = sqlite3.connect('/Users/JasonWeisenfeld/206FINAL/alldata1.db')
         cur = conn.cursor()
@@ -49,11 +45,7 @@ def create_database(data):
     except:
         print('ERROR')
 
-new_database()
-#Dallas=276
-#Miami=291
-#Los Angeles=281
-#New York City=280
+
 city = input("Enter the name of a city: ")
 if city == 'Dallas':
     city_id = 276
@@ -63,4 +55,4 @@ elif city == 'Los Angeles':
     city_id = 281
 elif city == 'New York City':
     city_id = 280
-create_database(zomato_data(API_KEY, city_id , ent_type))
+makeDB(zomato_data(API_KEY, city_id , ent_type))

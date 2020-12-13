@@ -1,0 +1,5 @@
+Restaurant Name, Zomato Rating, Yelp Rating, Rating Average
+Kuby's Sausage House 4.8 4.0 4.4 
+The Porch 4.6 4.0 4.3 
+Al Biernat's 4.6 4.0 4.3 
+Providence 4.7 4.5 4.6 

@@ -125,7 +125,6 @@ labels4 = '4', '3', '2', '1'
 sizes4 = [p_miatop, p_miamid, p_mialow, p_miabot]
 colors4 = ['red', 'blue', 'yellow', 'purple']
 
-#ploting the charts 
 
 fig = plt.figure(figsize= (10,5))
 ax1 = fig.add_subplot(141)
